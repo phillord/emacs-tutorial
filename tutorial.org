@@ -1,0 +1,214 @@
+#+TITLE: The Emacs Introduction Tutorial
+#+AUTHOR: Phillip Lord
+
+* Introduction
+
+Welcome to Emacs!
+
+Emacs is a text-editor with many advanced features. Its original purpose was
+for programmers to edit source code, but it has now expanded beyond this. It
+can be used to write documents, web pages, send email, calendering and,
+indeed, edit source code. Since it is possible to control most things that a
+computer can do with text, Emacs can also be used to interface and control
+anything that a computer can do.
+
+Emacs has a long history having been in continous development since 1985. In
+this sense, it is a very old piece of software. One significant advantage of
+this is that the core of Emacs is fairly stable; this means that knowledge
+learned today is likely to remain useful into the future.
+
+Emacs is also highly extensible, coming with its own rich extension language.
+In this sense, it is also a very new piece of software. It can be and is
+continually extended and adapted, providing new tools, for new purposes.
+
+The purpose of this tutorial is to give a brief introduction to Emacs, enough
+to make sense of what you are seeing and to start the process of Emacs
+mastery.
+
+* What you can see
+
+In this section, we introduce the basic elements that are visible on-screen
+and the terminology that it used to describe it. Emacs can run on many
+different operating systems and in many different ways. One advantage of Emacs
+is that it provides essentially the same experience in these different
+environments. However, for the majority of users it is generally used on a
+windowing system and we will assume that this is the case here. One slight
+disadvantage of Emacs long history is that some of its terminology predates
+windowing systems and in one case conflicts with it. We describe these
+differences here.
+
+** Frames
+
+If you have just started Emacs and this tutorial, you will be looking at a
+single window showing this tutorial. In Emacs terminology, this is not a
+described as a window but as a /frame/. As with many applications a single
+running Emacs can create any number of frames. We can do this using the
+menu system (we will investigate other ways later); try this now, but
+remember, these are /frames/ and not /windows/. Do not use the /New Window/
+menu item, but instead:
+
+#+begin_menu
+File
+New Frame
+#+end_menu
+
+The spare frame can be removed freely either using what ever close window
+facilties your desktop environment provides, or:
+
+#+begin_menu
+File
+Delete Frame
+#+end_menu
+
+Closing the last frame, also closes the application. Emacs will warn you if
+doing so is problematic in some way, such as unsaved files.
+
+** Windows
+
+Often, you will want to edit two pieces of text at the same time. It is
+possible to use multiple frames to do this, and many Emacs users prefer this.
+Emacs also has a weight alternative which it calls a /window/. It is possible
+to have any number of windows visible in a single frame, to resize them and
+change their arrangement, just like frames.
+
+We can create a new frame with:
+
+#+begin_menu
+File
+New Window Below
+#+end_menu
+
+Doing so now will result in the frame splitting leaving the tutorial visible
+twice. We can return to a single window with:
+
+#+begin_menu
+File
+Remove other windows
+#+end_menu
+
+Frames and Windows fulfil roughly similar purposes for the user perspective.
+So, which is best to use? Broadly, windows can be manipulated entirely within
+Emacs, and work whether Emacs works, while Frames can also be manipulated
+using tools from the desktop environment.
+
+** Buffers
+
+In each window, Emacs displays a /buffer/. In most cases, (including the
+buffer you reading now), a buffer contains the contents of a file, or what
+will become the contents of the file when it is saved. However, Emacs also
+uses buffers to contain anything that you might want to interact with: the
+contents of a directory, a process or even the configuration options of Emacs
+itself.
+
+At any point in time, a buffer may or may not be visible, but they can be
+displayed in a window when you choose. We try this now. First, we split our
+window:
+
+#+begin_menu
+File
+New Window Below
+#+end_menu
+
+You should now see this tutorial twice in two windows. Now we can
+change the buffer being displayed in one window.
+
+#+begin_menu
+Buffers
+*scratch*
+#+end_menu
+
+The `*scratch*` buffer is created automatically when Emacs starts and is just
+used as a temporary storage location for text, or code. Now we can hide this
+window again. Ensure that you select the window showing this tutorial by
+clicking into it first, or you will end up with just the `*scratch*` buffer.
+
+#+begin_menu
+File
+Remove Other Windows
+#+end_menu
+
+** Mode lines and Mini-buffers
+
+Emacs has two more usual features: the mode line and the mini-buffer. The mode
+line appears immediately below each Emacs window. It probably looks something
+like this:
+
+#+begin_example
+ -:---  TUTORIAL      Top L1   (Fundamental)
+#+end_example
+
+For more experienced Emacs, this line can become very full, containing much
+essential information about Emacs and the current window. For now, it simply
+contains the name of this file, the location within the file (as a percentage,
+Top or Bottom), the line number and information about the current mode (more
+on which later).
+
+Each Frame has a minibuffer. As with the mode-line, the minibuffer is heavily
+used by experienced Emacs users, but for now it's use is limited to providing
+status messages. Swap into the `*scratch*` buffer and back again. You should
+see this rather cryptic message underneath the mode-line, at the bottom of the
+frame.
+
+#+begin_todo
+ menu-bar buffer C-c
+#+end_todo
+
+** Menu, Toolbars and Scrollbars
+
+Finally, Emacs has menu bars, a toolbar and scrollbar. These work as you would
+expect for most applications, except that they are easy to control,
+configure and change in the running application. Emacs really is extensible!
+
+** Away from a Windowing System
+
+Although it is less frequently used in this way, Emacs also works away from a
+windowing system in a terminal. In this environment, most of the features that
+have been described so far are still usable, in particular Emacs windows,
+although it is not possible to start a new frame.
+
+While this use of Emacs is less common these days, it does allow some nice
+tricks. For instance, combined with GNU Screen, Emacs can be opened
+persistently on a server, or even shared by several users at the same time for
+remote, collaborative working.
+
+
+* Text in Emacs
+
+In this section, we consider how Emacs allows you to view and to change text
+within Emacs. This is mostly straight-forward, but Emacs gives you a some
+extra options useful for changing text rapidly.
+
+** This is a copy!
+
+If you wish to practice on this tutorial, do not worry, you can change it
+freely as it is just a copy.
+
+** TODO Editing Text
+
+Changing text happens in Emacs as with most other applications. A blinking
+cursor shows the current location in the file. Text can be selected with a
+mouse, and deleted in bulk.
+
+Emacs has a specialised display feature for text with longlines. You can see
+this by changing the size of the frame and making it narrower than the width
+of the text. By default, Emacs shows all of the text by wrapping the text onto
+the next line, and placing a small arrow to the right of the text to show that
+this has been done.
+
+One feature that will not surprise you is that Emacs uses multiple keypresses
+for some punctuation --- to type the double quote, you press "shift" and "2"
+or "'" depending on your keyboard layout. What may surprise you is the extent
+to which Emacs expands on this idea of multiple keypresses, and it is this
+that we will consider in the next section.
+
+
+* Keyboard Control
+
+With its long history, Emacs actually predates widespread use of mice, menus
+and windowing systems. As a result it used a different way to allow complex
+interaction with the user, which it achieved by combining multiple keypresses,
+or keychords. Of course, nowadays you can also use the menu system, but the
+keychord approach has a couple of advantages regardless:
+
+ - It is often very fast.
+   

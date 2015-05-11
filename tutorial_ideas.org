@@ -1,0 +1,129 @@
+
+* What is Emacs [6/6]
+ - [X] It's a text editor
+ - [X] Can control most things in a computer with text
+ - [X] Hence Emacs is an OS shell
+ - [X] Emacs history: it's old, reflected in it's terminology
+ - [X] However, the core is stable, learn today use tomorrow
+ - [X] And it's new: extensible and adaptable
+
+* What can you see [9/9]
+ - [X] Assume we on a windowing system
+ - [X] A frame
+ - [X] One or more windows
+ - [X] One or buffers
+ - [X] Mode Line
+ - [X] Mini-buffer (Ctrl-g)
+ - [X] Scroll bars
+ - [X] Off a windowing system
+ - [X] Interacting with what you see
+
+* Changing Text [0/5]
+
+ - [ ] Don't worry this is a copy
+ - [ ] Just type
+ - [ ] Just delete
+ - [ ] Home, End, PgUp, PgDn
+ - [ ] Selecting Text
+ - [ ] Insert past the end of a line -- continuation line
+ - [ ] Punctuation requires two key presses: Emacs expands on this idea.
+
+* Keyboard control [0/9]
+ - [ ] Emacs predates (widespread use of) mice
+ - [ ] As with what you can see, works off windowing system
+ - [ ] Often faster
+ - [ ] Only uses the "main" keys -- so works on all keysboards
+ - [ ] The 2 control keys (and two more--shift, shift-lock)
+ - [ ] Control is simple
+ - [ ] Meta is harder -- also Esc
+ - [ ] C-v, M-v -- one screen at a time, and centre
+ - [ ] Now we can use this to do something useful
+
+
+* Ctrl-G saves the day [/]
+
+* Cursor Control [/]
+ - [ ] Move forward and backward; maybe easier than arrow keys, depending on
+   keyboard layout
+ - [ ] Move to end of line, beginning
+ - [ ] Logical Control: word at a time, sentence at a time
+ - [ ] This is why keychords are useful -- keyboard "space" is too small
+ - [ ] What do we mean by a sentence: 
+
+* Commands [/] 
+ - [ ] Everything is a command
+ - [ ] Single characters are "self-inserting"
+ - [ ] Key Chords do more complex things
+ - [ ] Menu's also run commands
+ - [ ] Menu's and keyboard are linked
+ - [ ] Help->Describe->Keyboard or Mouse Operation, 
+   Remove Other Windows
+ - [ ] Now do Remove Other Windows
+ - [ ] Now do C-h k, C-x 1, to get to the same help, followed by C-x 1 to
+   remove
+ - [ ] In the menu, C-x 1 is listed. In the help 
+      "It is bound to C-x 1, <menu-bar> <file> <one-window>"
+ - [ ] TODO: The menu bar description doesn't tell you how to use it!
+ - [ ] Some commands are bound to many places! C-h k C-h k which describes itself.
+
+* Undo [/]
+ - [ ] Undo works as expected
+ - [ ] C-/, or C-_
+ - [ ] Takes a numeric argument
+ - [ ] Can also use C-x u
+
+* Cut, Paste, Yank and Kill [/]
+ - [ ] Cut and Paste is very useful
+ - [ ] Emacs uses something slightly different: essentially, when ever you
+   remove a significant amount of text at once, it's a cut.
+ - [ ] Simplest form of deletion (backspace) *is* a delete
+ - [ ] Most others are *kill* -- actually save the text also
+ - [ ] How to kill
+ - [ ] Select and kill with mouse
+ - [ ] How to yank, and yank cycle
+ - [ ] No special mechanism is required for cutting.
+ - [ ] But, what about Ctrl-X, C and V? And isn't Ctrl-W a PITA, as it shuts
+   windows in general? Cua-mode. See this later.
+
+
+* Files [/]
+ - [ ] But what about files?
+ - [ ] How to open a file, how to save a file
+ - [ ] TODO: "Visit New File" needs to be called "Open New File"
+
+* Buffer
+ - [ ] Can think of buffers like tabs (without tabs)
+ - [ ] You can have many buffers
+ - [ ] How do you select them, if you can't see them
+ - [ ] List Buffers
+ - [ ] Emacs never edits files, but buffers
+ - [ ] You can discard (kill) a buffer with no affect on the file
+ - [ ] You can have a buffer with no file (help)
+
+* Windows 
+ - [ ] Earlier we saw windows...
+ - [ ] Emacs can have several windows.
+ - [ ] Windows are not frames
+ - [ ] We have seen how to get out of this
+ - [ ] Now, let's try some use
+ - [ ] Drag the mode-line to resize vertically
+ - [ ] Can also split vertically, and drag the divider
+ - [ ] "Selected window" works by clicking; cursor
+ and altered mode-line tells you which is selected
+ - [ ] C-x o also changes window
+ - [ ] Unlike OS "windowing systems", you can move without changing
+
+* More on commands
+ - [ ] Control-Meta keypress
+ - [ ] Prefix commands
+ - [ ] Extended command sets
+
+
+
+
+
+ 
+
+
+
+
