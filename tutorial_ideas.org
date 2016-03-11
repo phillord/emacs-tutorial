@@ -18,37 +18,37 @@
  - [X] Off a windowing system
  - [X] Interacting with what you see
 
-* Changing Text [0/5]
+* Changing Text [7/7]
 
- - [ ] Don't worry this is a copy
- - [ ] Just type
- - [ ] Just delete
- - [ ] Home, End, PgUp, PgDn
- - [ ] Selecting Text
- - [ ] Insert past the end of a line -- continuation line
- - [ ] Punctuation requires two key presses: Emacs expands on this idea.
+ - [X] Don't worry this is a copy
+ - [X] Just type
+ - [X] Just delete
+ - [X] Home, End, PgUp, PgDn
+ - [X] Selecting Text
+ - [X] Insert past the end of a line -- continuation line
+ - [X] Punctuation requires two key presses: Emacs expands on this idea.
 
-* Keyboard control [0/9]
- - [ ] Emacs predates (widespread use of) mice
- - [ ] As with what you can see, works off windowing system
- - [ ] Often faster
- - [ ] Only uses the "main" keys -- so works on all keysboards
- - [ ] The 2 control keys (and two more--shift, shift-lock)
- - [ ] Control is simple
- - [ ] Meta is harder -- also Esc
- - [ ] C-v, M-v -- one screen at a time, and centre
- - [ ] Now we can use this to do something useful
+* Keyboard control [9/9]
+ - [X] Emacs predates (widespread use of) mice
+ - [X] As with what you can see, works off windowing system
+ - [X] Often faster
+ - [X] Only uses the "main" keys -- so works on all keysboards
+ - [X] The 2 control keys (and two more--shift, shift-lock)
+ - [X] Control is simple
+ - [X] Meta is harder -- also Esc
+ - [X] C-v, M-v -- one screen at a time, and centre
+ - [X] Now we can use this to do something useful
 
 
 * Ctrl-G saves the day [/]
 
-* Cursor Control [/]
- - [ ] Move forward and backward; maybe easier than arrow keys, depending on
+* Cursor Control [5/5]
+ - [X] Move forward and backward; maybe easier than arrow keys, depending on
    keyboard layout
- - [ ] Move to end of line, beginning
- - [ ] Logical Control: word at a time, sentence at a time
- - [ ] This is why keychords are useful -- keyboard "space" is too small
- - [ ] What do we mean by a sentence: 
+ - [X] Move to end of line, beginning
+ - [X] Logical Control: word at a time, sentence at a time
+ - [X] This is why keychords are useful -- keyboard "space" is too small
+ - [X] What do we mean by a sentence: 
 
 * Commands [/] 
  - [ ] Everything is a command
@@ -90,7 +90,7 @@
  - [ ] But what about files?
  - [ ] How to open a file, how to save a file
  - [ ] TODO: "Visit New File" needs to be called "Open New File"
-
+   
 * Buffer
  - [ ] Can think of buffers like tabs (without tabs)
  - [ ] You can have many buffers
@@ -118,7 +118,19 @@
  - [ ] Prefix commands
  - [ ] Extended command sets
 
+* Modal Editing
+ 
+ - Emacs comes with many different modes
+ - Each changes the ways, including the keys massively
+ - Hopefully this is most intuitive.
+ - Help screen, for example, space and backspace move up and down.
 
+* ELPA Packages
+
+ - We can extend Emacs with packages
+ - There are many of these in Emacs
+ - M-x list-packages
+ - To complete, we will install, tutorial extra
 
 
 
