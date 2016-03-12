@@ -7,7 +7,7 @@ Welcome to Emacs!
 
 Emacs is a text-editor with many advanced features. Its original purpose was
 for programmers to edit source code, but it has now expanded beyond this. It
-can be used to write documents, web pages, send email, calendering and,
+can be used to write documents, web pages, send email, calendaring and,
 indeed, edit source code. Since it is possible to control most things that a
 computer can do with text, Emacs can also be used to interface and control
 anything that a computer can do.
@@ -51,24 +51,24 @@ File
 New Frame
 #+end_menu
 
-The spare frame can be removed freely either using what ever close window
-facilties your desktop environment provides, or:
+The spare frame can be removed freely either using whatever close window
+facilities your desktop environment provides, or:
 
 #+begin_menu
 File
 Delete Frame
 #+end_menu
 
-Closing the last frame, also closes Emacs. It will warn you if doing so is
-problematic in some way, such as unsaved files.
+Closing the last frame also closes Emacs. It will warn you if doing so is
+problematic in some way, such as in the case of having unsaved files.
 
 ** Windows
 
 Often, you will want to edit two pieces of text at the same time. It is
-possible to use multiple frames to do this, and many Emacs users prefer this.
+possible to use multiple frames to do this, and some Emacs users prefer this.
 Emacs also has a light-weight alternative which it calls a /window/. It is
 possible to have any number of windows visible in a single frame, to resize
-them and change their arrangement, just like frames.
+them and change their arrangement, not unlike frames.
 
 We can create a new frame with:
 
@@ -85,9 +85,9 @@ File
 Remove other windows
 #+end_menu
 
-Frames and Windows fulfil roughly similar purposes for the user perspective.
+Frames and windows fulfil roughly similar purposes for the user perspective.
 So, which is best to use? Broadly, windows can be manipulated entirely within
-Emacs, and work where-ever Emacs works, while Frames can also be manipulated
+Emacs, and work where-ever Emacs works, while frames can also be manipulated
 using tools from the desktop environment. Later in the tutorial, we will
 demonstrate more rapid ways of manipulating windows than the menu bars we have
 used so far.
@@ -174,7 +174,6 @@ persistently on a server, or even shared by several users at the same time for
 remote, collaborative working. It is also extremely useful for systems
 administration either when running over SSH or as a root user.
 
-
 * Text in Emacs
 
 In this section, we consider how Emacs allows you to view and to change text
@@ -231,7 +230,7 @@ background.
 ** Modifiers
 
 The basic keys on the keyboard are, of course, used for inserting characters.
-So, Emacs must use "modifier keys" to access it's commands. Emacs users four
+So, Emacs must use "modifier keys" to access it's commands. Emacs uses four
 by default, which are:
 
  - The /Ctrl/ or /control/ key, which is normally found on the bottom row
@@ -247,7 +246,7 @@ you so wish.
 Of these, Ctrl is normally abbreviated to "C" while Alt is abbreviated to,
 confusingly, "M". The reason for this is historical, as keyboards used to have
 a key labelled "Meta". Shift is refered to using capital letters. Esc is
-rarely abbreviated, but is, instead a different way of accssing Alt.
+rarely abbreviated, but is, instead a different way of accessing Alt.
 
 So, "C-x C-f" means "press the Ctrl key, and simultaneously the x, then the f
 key".
@@ -282,7 +281,6 @@ not to the start of the line, but the start of the *sentence*.
 The use of double press keys expands the keyboard significantly, but Emacs
 takes this considerably further, as we will describe after a brief excursion.
 
-
 ** Ctrl-g saves the day
 
 The use of keyboard modifiers mean that, some times, Emacs will get stuck. For
@@ -298,7 +296,7 @@ What is a command? We will investigate this next.
 
 Users interact with Emacs by running /commands/. Everything that you do that
 changes Emacs happens via running one or more commands. Underneath, these
-commands are (mostly) implemented in Emacs' extension language (Emacs-Lisp).
+commands are (mostly) implemented in Emacs' extension language (Emacs Lisp).
 Although it may not seem like it, you have already been interacting with Emacs
 via a stream of commands.
 
@@ -306,7 +304,7 @@ The most commonly used command is ~self-insert-command~ (you may also see this
 written as `self-insert-command', a tradition which stems from its use in
 Emacs' source code). By default, most of the keys on the keyboard are /bound/
 to ~self-insert-command~: i.e. pressing the key calls this command. It does
-pretty much what its name suggests. It inserts into the buffer which ever key
+pretty much what its name suggests. It inserts into the buffer whichever key
 was pressed. Pressing the <a> key or the <e> key has the same effect but with
 different results.
 
@@ -382,7 +380,6 @@ Emacs' extensive use of keypresses sometimes clashes with keypresses from
 other environments. This can be a common cause of confusions for people new to
 Emacs. We will the two most of these keypresses next.
 
-
 ** Undo
 
 In many applications, the keypress Ctrl-z runs the undo system, which is,
@@ -406,8 +403,9 @@ A numeric ARG serves as a repeat count.
 #+end_example
 
 We show slightly more of the help screen than previously, as it allows us to
-introduce a new feature. ~undo~ access a /numeric argument/. You can supply
-this argument with the keypress C-u. So C-u 10 C-/ undo the last ten actions.
+introduce a new feature. ~undo~ accepts a /numeric argument/. You can supply
+this argument with the keypress C-u. So C-u 10 C-/ undoes the last ten
+actions.
 
 ** Cut and Paste, Yank and Kill
 
@@ -481,6 +479,3 @@ Save Options
 #+end_menu
 
 Later on, we will discuss /modes/ in more detail.
-
-
-
