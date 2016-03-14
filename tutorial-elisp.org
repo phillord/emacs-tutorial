@@ -1,0 +1,26 @@
+#+TITLE: The Emacs Lisp Introduction Tutorial
+#+AUTHOR: Marcin Borkowski
+
+* Introduction
+
+* Introduction to Emacs Lisp
+
+* Practicing Evaluation
+
+* Making lists and quoting
+
+* Conditionals
+
+* Looping
+
+* Side effects
+
+* Variables and assignment
+
+* Functions
+
+* Commands
+
+* Introduction to debugging
+
+* Potentially useful packages for Lisp editing
