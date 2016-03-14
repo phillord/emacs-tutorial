@@ -20,6 +20,77 @@ them are sprinkled throughout the text.  You don't lose anything
 important if you skip or don't understand them.
 
 * Introduction to Emacs Lisp
+Emacs Lisp is a member of the ancient and noble family of Lisp
+programming languages.  (Its name is sometimes shortened to Elisp, and
+we will use the more generic word "Lisp" from time to time, too.
+There are excellent articles about the history of Lisp, and the
+reasons it looks like this, so we will jump straight into examples.
+
+A Lisp program consists of a sequence of /expressions/.  Each of them
+is /evaluated/ in succession, and the evaluation of each one results
+in a /value/ (we say that an expression /returns/ the value, or that
+it /evaluates/ to it.).  Notice that there are no /statements/ in
+Lisp, unlike languages like C or Python.  The thing closest to
+a "statement" in Lisp is an expression whose value is not used.
+
+An expression may be an /atom/.  An atom can be a /literal value/,
+like a number or a string of characters, or something called
+a /symbol/, which is a Lispy way of saying "a name for something".  (A
+Lisp "symbol" is close to what other languages call an "identifier".
+Lisp does not have a notion of a "reserved keyword".)  The rules to
+decide which is which are rather simple: a /string/ is a sequence of
+characters other than quotation marks, surrounded by quotation marks,
+like ="string"=; a /number/ is something consisting of digits and
+possibly a sign, a decimal point and an exponent part, formed in an
+appropriate way, like =-12.34e8= or =31=, and a symbol is a sequence
+of "normal" characters -- most often lowercase letters, dashes and
+a few others.  (It may even have digits, provided they do not form
+a number; =+1= is not a symbol, while =1+= is.)  These rules are not
+comprehensive (they are so simplified to be even wrong!), but they
+suffice for the most cases.  There are also more kinds, or /types/, of
+literal values, but they are fairly advanced and we will not cover
+them in this tutorial.
+
+An expression consisting of a literal value evaluates to itself: the
+value of the expression =3.1416= is, unsurprisingly, the number
+3.1416.  An expression consisting of a symbol evaluates the thing the
+symbol names; if there is no such thing, an error occurs.
+
+An expression is often a /list/, i.e., a sequence of /elements/,
+separated by whitespace, and enclosed in parentheses, like this:
+
+#+BEGIN_EXAMPLE
+  (This is a list.)
+#+END_EXAMPLE
+
+The above list consists of four elements, and each of them is
+a symbol.  Elements of lists need not be symbols.  They can be
+literals (i.e., actual /values/), like numbers or strings, or even
+other lists.
+
+#+BEGIN_EXAMPLE
+  ((This list) has 4 "elements.")
+#+END_EXAMPLE
+
+The first element of the above list is itself a list (consisting of
+two elements -- both symbols), then another symbol, then a number,
+then a string.
+
+Not every list is a good candidate for an /expression/, though.  For
+a list to serve as that, the first element should be something
+special: most often, a symbol describing /what/ we want to happen.
+The rest of the elements should explain /in what way/ we want that to
+happen.  (The first element can be thought of as a /verb/ describing
+an action, and the rest as /nouns/, objects for that action.)
+
+Here is a simple example of a well-formed expression:
+
+#+BEGIN_SRC elisp
+  (+ 52 55)
+#+END_SRC
+
+It is not difficult to guess what it evaluates to.  How do we find out
+whether we guessed correctly?
 
 * Practicing Evaluation
 
