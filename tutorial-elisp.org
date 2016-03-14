@@ -2,6 +2,22 @@
 #+AUTHOR: Marcin Borkowski
 
 * Introduction
+This tutorial is meant to get you started with Emacs Lisp.
+
+Nearly everything covered by this short tutorial (and much, much more)
+can be learned from the official Emacs documentation (reading of which
+I strongly recommend, especially the excellent Robert J. Chassell's
+book, "Introduction to Programming in Emacs Lisp", which you can
+access in Emacs by typing =C-h i d m emacs lisp intro RET= and which
+is another introductory text on Emacs Lisp).  If you prefer, however,
+to learn by doing, this tutorial may serve (hopefully) as a useful
+assistance.
+
+We do not assume knowledge of programing in general or in any language
+in particular, but for the sake of those readers who happen to know
+some popular programming language(s), remarks comparing Emacs Lisp to
+them are sprinkled throughout the text.  You don't lose anything
+important if you skip or don't understand them.
 
 * Introduction to Emacs Lisp
 
