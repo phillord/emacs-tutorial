@@ -166,6 +166,102 @@ we have covered are enough for now.  Let us move on to explaining some
 of the magic behind the example expressions above!
 
 * Making lists and quoting
+Many, many things in Emacs are /lists/.  For instance, the /kill ring/
+is kept in a list.  Try =C-h v kill-ring RET= now to see it for
+yourself.
+
+But this begs a question: how to refer to a list inside a Lisp
+program?  Since Lisp programs themselves are lists of expressions,
+which are also (often) lists, how to distinguish between a list as
+code and list as data?
+
+The answer is: we should /quote/ the list.  When writing in English,
+when you want the reader to understand that some words should be taken
+literally, you can enclose them in quotes.  For instance, if you don't
+want to sound uneducated, you may write
+
+#+BEGIN_QUOTE
+They sang "We don't need no education".
+#+END_QUOTE
+
+instead of
+
+#+BEGIN_QUOTE
+They sang that they didn't need no education.
+#+END_QUOTE
+
+In a similar vein, when you want Lisp to know that =(1 2 3)= is to be
+taken literally as a list of numbers and not evaluated (and trying to
+evaluate this list will result in error -- try it yourself!), you can
+/quote/ it.  Unlike English, Lisp requires only one quote, at the
+beginning (since the list is enclosed in parentheses and hence it is
+obvious where it ends anyway), and uses the single quote (or
+apostrophe) to quote lists, like this:
+
+#+BEGIN_SRC elisp
+  '(1 2 3)
+#+END_SRC
+
+If you evaluate this now (e.g., using =C-x C-e= in this very buffer),
+instead of an error message you will get the result, which is the list
+=(1 2 3)=.
+
+In fact, the same mechanism applies also in other situations when we
+don't want Lisp to evaluate something.  For instance, try to evaluate
+this:
+
+#+BEGIN_SRC elisp
+  kill-ring
+#+END_SRC
+
+and this:
+
+#+BEGIN_SRC elisp
+  'kill-ring
+#+END_SRC
+
+As you can see, the value of the former expression (without the quote)
+is what the name (or /variable/, which is a concept we will discuss
+later) =kill-ring= /refers/ to (i.e., the contents of the kill ring),
+and the value of the latter one (with the quote) is the name (symbol)
+itself.  Believe it or not, this is sometimes useful.
+
+Incidentally, the same list can be created in another way.  There is
+a built-in function =list=, which takes as many arguments as you give
+it (it's even happy with zero!) and returns a list made from all of
+them.  Before you evaluate these expressions, try to guess which one
+will result in an error!
+
+#+BEGIN_SRC elisp
+  (list 1 2 3)
+  (list)
+  (list 1 2 (list 3 4))
+  (list 1 2 list)
+  (list 1 2 'list)
+#+END_SRC
+
+If you actually did evaluate the above expressions, you may have
+noticed something strange.  The result of the second expression was
+not, as you may have expected, the /empty list/ =()=, but the word
+=nil=.  Don't worry: it is exactly the same thing.  Whenever you are
+allowed to write =()=, you can also write =nil=, and vice versa.
+
+You may ask, why would you want to write =(list 1 2 3)= when writing
+='(1 2 3)= is shorter?  The short answer is: it is rarely the case
+that you need some list in a Lisp program whose elements can be
+predetermined at the time of writing the program, and if the contents
+of the list shhould depend on something outside the control of the
+programmer (like the contents of some buffer at the time of running
+the program or the keys the user presses etc.), the quote notation
+won't be of any use.  The longer answer is...  no, I won't give the
+longer answer, since you cannot understand it now.  Just a warning;
+memorize it now even if you do not understand it /at all/.  When the
+undrestanding comes, and you will be in a situation when the subject
+of it matters to you, you will thank me for that advice.  If you need
+a literal list in your program, but you are going to apply any
+destructive function on the variable containing that list, never,
+/ever/ use the quote notation in your program.  You do not know it
+yet, but I just saved you a /lot/ of headaches.   You are welcome.
 
 * Conditionals
 
