@@ -93,6 +93,77 @@ It is not difficult to guess what it evaluates to.  How do we find out
 whether we guessed correctly?
 
 * Practicing Evaluation
+There are quite a few ways for the Emacs user to evaluate an
+expression and check what value it returns.  One of them is the aptly
+named =eval-expression= command, by default bound to =M-:=.  Try it
+now: press =M-:=, then type =(+ 52 55)= (don't forget the spaces!),
+and hit =RET=.  You should see something like this:
+#+BEGIN_EXAMPLE
+107 (#o153, #x6b, ?k)
+#+END_EXAMPLE
+The result might be a bit surprising -- you probably expected to see
+just =113= -- but when evaluating expressions returning whole numbers,
+it is occasionally useful to see also the octal (153) and hexadecimal
+(6b) values of the expression as well as the character whose code is
+the expression's value, so that is what Emacs shows in this case.
+
+Of course, retyping the expression you already have in some buffer is
+not what you would like to do.  You may of course kill the expression
+and yank it in the minibuffer when presented with the =M-:= prompt,
+but there is another way.  In any mode (except maybe some really
+exotic ones), you can place the point /after/ an expression and press
+=C-x C-e= (or =M-x eval-last-sexp=).  (The "sexp" part is an
+abbreviation of "s-expression", a fancy name for Lisp's kind of
+expressions -- the ones enclosed in parentheses, and where the "verb"
+comes at the beginning.)
+
+You may now try evaluating various expressions, which sometimes leads
+to surprises.  Try to guess what value the following expressions
+return (some of them are cases of constructions we will cover later):
+
+#+BEGIN_SRC elisp
+  (/ 12 5)
+  (/ 12 5.0)
+  (* (+ 2 3) (/ 16 4))
+  (concat "foo" "bar")
+  (sleep-for 4)
+  (point)
+  (current-buffer)
+  (buffer-name (current-buffer))
+  (if (= 0 1)
+      (message "Something is fishy!")
+    (message "Numbers work as expected."))
+  (mapcar #'sqrt '(1 2 3 4))
+  (setq foo 42)
+  (* foo foo)
+#+END_SRC
+
+Notice that the third expression is different than the others, in that
+it contains another expression as one of its parts.  It is perfectly
+valid -- and in fact, used all the time in Lisp programs -- since it
+is the basic way of combining simple expressions to form more complex
+ones.  When Emacs computes the value of an expression, and one of its
+parts is an expression itself, Emacs pauses for a moment, computes the
+value of the subexpression, and then substitutes the computed value in
+place of that subexpression.  It is even possible (and very useful)
+for the subexpression to contain further subexpressions, and this
+chain is automatically properly resolved.
+
+As you can see from some of the above examples, there exist various
+"verbs" that can come as the first symbol in an expression.  In fact,
+there exist /thousands/ of them -- the more packages you have
+installed in your Emacs, the more such symbols exist.  (In my Emacs,
+when I am typing this, I have 25849 of them.  In stock Emacs, without
+any packages, there are more than 6000 of them.)  This number may seem
+intimidating, but just like when learning a natural language, you do
+not have to know all them to be able to communicate with its native
+speakers comfortably.  Even if you know only a few dozen, you can
+express quite a few things, and Emacs has much better facilities than
+an ordinary dictionary to learn new ones.
+
+There are more ways to evaluate Emacs Lisp expressions, but the ones
+we have covered are enough for now.  Let us move on to explaining some
+of the magic behind the example expressions above!
 
 * Making lists and quoting
 
