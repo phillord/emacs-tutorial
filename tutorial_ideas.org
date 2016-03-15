@@ -95,6 +95,7 @@
   - [ ] TODO: "Visit New File" needs to be called "Open New File"
     
 ** Buffer
+
   - [ ] Can think of buffers like tabs (without tabs)
   - [ ] You can have many buffers
   - [ ] How do you select them, if you can't see them

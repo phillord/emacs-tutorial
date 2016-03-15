@@ -110,8 +110,9 @@ File
 New Window Below
 #+end_menu
 
-You should now see this tutorial twice in two windows. Now we can
-change the buffer being displayed in one window.
+You should now see this tutorial twice in two windows; although it appears
+twice, there is only one copy. Changing one view will change the other. Now we
+can change the buffer being displayed in one window.
 
 #+begin_menu
 Buffers
@@ -206,23 +207,28 @@ that we will consider in the next section.
 
 * Keyboard Control
 
+We said earlier, that as well as being modifiable, it is possible to disable
+the Emacs menu system entirely. In fact, many seasoned Emacs users prefer it
+that way, to maximise the editing area on screen. How, then, do they access
+the functionality in the menu system?
+
 With its long history, Emacs actually predates widespread use of mice, menus
 and windowing systems. As a result, it used a different way to allow complex
 interaction with the user, which it achieved by combining multiple keypresses,
-or /keychords/. Of course, you can also use the menu system, but the
-keychording approach has survived, and is commonly used by experienced Emacs
-users. 
+or /keychords/. This approach has a number of advantages over menus:
 
 - It is often very fast.
 - Hands can be left in place at the keyboard, reducing wrist strain
 - Combined with the modifier keys (Ctrl, Alt and Shift which we describe more
   later), you can use a very large number of commands.
 
-Because of this, experienced users will often exchange advice and information
-using reference to these keypresses: you may see cryptic advice like "Use C-x
-C-f to open a file". This also demonstrates another advantage of keychords --
-they are easy to describe: compare "go to the File menu, then Open File, then
-select the item, then click the "Open" button near the bottom right".
+It is for this reason that is has survived and is, in fact, commonly used by
+experienced Emacs users. Because of this, experienced users will often
+exchange advice and information using reference to these keypresses: you may
+see cryptic advice like "Use C-x C-f to open a file". This also demonstrates
+another advantage of keychords -- they are easy to describe: compare "go to
+the File menu, then Open File, then select the item, then click the "Open"
+button near the bottom right".
 
 In this section, we describe a few keychord commands, and introduce the basic
 background.
@@ -492,3 +498,51 @@ Save Options
 #+end_menu
 
 Later on, we will discuss /modes/ in more detail.
+
+* Files and Directories
+
+So far, we have looked at how to control Emacs. Of course, being a text
+editor, the most common use for Emacs is to open, change and save files.
+
+First, we should recap the difference between a /file/ and a /buffer/.
+Everything that you see on screen is a buffer. Buffers are often /associated/
+with a file: that is, they show the contents of a file, and will save changes
+to that file. But many buffers are not and, instead, contain other
+information.
+
+Opening a file in Emacs is straight-forward. In the menu system use:
+
+#+begin_menu
+File
+Open File
+#+end_menu
+
+Or, alternatively, C-x C-f. The former will result in a file dialog, the
+latter will use the mini-buffer for interaction. Files can be saved in a
+similar way either with the menu:
+
+#+begin_menu
+File
+Save
+#+end_menu
+
+or the keys C-x C-s. Emacs also provides another, very useful, alternative
+command called ~save-some-buffers~ (C-x s) which saves any buffer that needs
+to be saved -- you can save all of your files together rather than one at a
+time.
+
+Emacs can also display directories. Unlike many editors, which only show
+directories in a dialog box, Emacs uses a buffer, and this persists until you
+delete it. You can change to a file buffer, and then back again, as you
+choose. We access this with the same command used to open a file. Try C-x C-f,
+then hit enter to accept the default value which will be a directory
+(probably, your home directory). Emacs provides extensive facilities for
+operating on and changing directories and the files that they contain in bulk,
+together called dired (for directory editor).
+
+Emacs was originally intended for programmers, who tend to open a lot of
+files, often spread widely around the file system. Although, we will not look
+at them in further detail, Emacs has been extended in a number of ways to make
+file navigation very quick, including, for example ~ido-mode~.
+
+
