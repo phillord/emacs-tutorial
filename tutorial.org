@@ -294,6 +294,7 @@ useful, as it can be used to stop any running command.
 
 What is a command? We will investigate this next.
 
+
 * Commands
 
 Users interact with Emacs by running /commands/. Everything that you do that
@@ -376,11 +377,12 @@ It is bound to C-h k, <f1> k, <help> k, <menu-bar> <help-menu>
 
 One command, with four different mechanisms of accessing it.
 
+
 * Clashing Keys
 
 Emacs' extensive use of keypresses sometimes clashes with keypresses from
 other environments. This can be a common cause of confusions for people new to
-Emacs. We will the two most of these keypresses next.
+Emacs. We will consider the two most common of these keypresses next.
 
 
 ** Undo

@@ -1,141 +1,165 @@
 
-* What is Emacs [6/6]
- - [X] It's a text editor
- - [X] Can control most things in a computer with text
- - [X] Hence Emacs is an OS shell
- - [X] Emacs history: it's old, reflected in it's terminology
- - [X] However, the core is stable, learn today use tomorrow
- - [X] And it's new: extensible and adaptable
 
-* What can you see [9/9]
- - [X] Assume we on a windowing system
- - [X] A frame
- - [X] One or more windows
- - [X] One or buffers
- - [X] Mode Line
- - [X] Mini-buffer (Ctrl-g)
- - [X] Scroll bars
- - [X] Off a windowing system
- - [X] Interacting with what you see
+* Tutorial Outline
 
-* Changing Text [7/7]
+** What is Emacs [6/6]
+  - [X] It's a text editor
+  - [X] Can control most things in a computer with text
+  - [X] Hence Emacs is an OS shell
+  - [X] Emacs history: it's old, reflected in it's terminology
+  - [X] However, the core is stable, learn today use tomorrow
+  - [X] And it's new: extensible and adaptable
 
- - [X] Don't worry this is a copy
- - [X] Just type
- - [X] Just delete
- - [X] Home, End, PgUp, PgDn
- - [X] Selecting Text
- - [X] Insert past the end of a line -- continuation line
- - [X] Punctuation requires two key presses: Emacs expands on this idea.
+** What can you see [9/9]
+  - [X] Assume we on a windowing system
+  - [X] A frame
+  - [X] One or more windows
+  - [X] One or buffers
+  - [X] Mode Line
+  - [X] Mini-buffer (Ctrl-g)
+  - [X] Scroll bars
+  - [X] Off a windowing system
+  - [X] Interacting with what you see
 
-* Keyboard control [9/9]
- - [X] Emacs predates (widespread use of) mice
- - [X] As with what you can see, works off windowing system
- - [X] Often faster
- - [X] Only uses the "main" keys -- so works on all keysboards
- - [X] The 2 control keys (and two more--shift, shift-lock)
- - [X] Control is simple
- - [X] Meta is harder -- also Esc
- - [X] C-v, M-v -- one screen at a time, and centre
- - [X] Now we can use this to do something useful
+** Changing Text [7/7]
 
+  - [X] Don't worry this is a copy
+  - [X] Just type
+  - [X] Just delete
+  - [X] Home, End, PgUp, PgDn
+  - [X] Selecting Text
+  - [X] Insert past the end of a line -- continuation line
+  - [X] Punctuation requires two key presses: Emacs expands on this idea.
 
-* Ctrl-G saves the day [/]
-
-* Cursor Control [5/5]
- - [X] Move forward and backward; maybe easier than arrow keys, depending on
-   keyboard layout
- - [X] Move to end of line, beginning
- - [X] Logical Control: word at a time, sentence at a time
- - [X] This is why keychords are useful -- keyboard "space" is too small
- - [X] What do we mean by a sentence: 
-
-* Commands [/] 
- - [ ] Everything is a command
- - [ ] Single characters are "self-inserting"
- - [ ] Key Chords do more complex things
- - [ ] Menu's also run commands
- - [ ] Menu's and keyboard are linked
- - [ ] Help->Describe->Keyboard or Mouse Operation, 
-   Remove Other Windows
- - [ ] Now do Remove Other Windows
- - [ ] Now do C-h k, C-x 1, to get to the same help, followed by C-x 1 to
-   remove
- - [ ] In the menu, C-x 1 is listed. In the help 
-      "It is bound to C-x 1, <menu-bar> <file> <one-window>"
- - [ ] TODO: The menu bar description doesn't tell you how to use it!
- - [ ] Some commands are bound to many places! C-h k C-h k which describes itself.
-
-* Undo [/]
- - [ ] Undo works as expected
- - [ ] C-/, or C-_
- - [ ] Takes a numeric argument
- - [ ] Can also use C-x u
-
-* Cut, Paste, Yank and Kill [/]
- - [ ] Cut and Paste is very useful
- - [ ] Emacs uses something slightly different: essentially, when ever you
-   remove a significant amount of text at once, it's a cut.
- - [ ] Simplest form of deletion (backspace) *is* a delete
- - [ ] Most others are *kill* -- actually save the text also
- - [ ] How to kill
- - [ ] Select and kill with mouse
- - [ ] How to yank, and yank cycle
- - [ ] No special mechanism is required for cutting.
- - [ ] But, what about Ctrl-X, C and V? And isn't Ctrl-W a PITA, as it shuts
-   windows in general? Cua-mode. See this later.
+** Keyboard control [9/9]
+  - [X] Emacs predates (widespread use of) mice
+  - [X] As with what you can see, works off windowing system
+  - [X] Often faster
+  - [X] Only uses the "main" keys -- so works on all keysboards
+  - [X] The 2 control keys (and two more--shift, shift-lock)
+  - [X] Control is simple
+  - [X] Meta is harder -- also Esc
+  - [X] C-v, M-v -- one screen at a time, and centre
+  - [X] Now we can use this to do something useful
 
 
-* Files [/]
- - [ ] But what about files?
- - [ ] How to open a file, how to save a file
- - [ ] TODO: "Visit New File" needs to be called "Open New File"
-   
-* Buffer
- - [ ] Can think of buffers like tabs (without tabs)
- - [ ] You can have many buffers
- - [ ] How do you select them, if you can't see them
- - [ ] List Buffers
- - [ ] Emacs never edits files, but buffers
- - [ ] You can discard (kill) a buffer with no affect on the file
- - [ ] You can have a buffer with no file (help)
+** Ctrl-G saves the day [/]
 
-* Windows 
- - [ ] Earlier we saw windows...
- - [ ] Emacs can have several windows.
- - [ ] Windows are not frames
- - [ ] We have seen how to get out of this
- - [ ] Now, let's try some use
- - [ ] Drag the mode-line to resize vertically
- - [ ] Can also split vertically, and drag the divider
- - [ ] "Selected window" works by clicking; cursor
- and altered mode-line tells you which is selected
- - [ ] C-x o also changes window
- - [ ] Unlike OS "windowing systems", you can move without changing
+** Cursor Control [5/5]
+  - [X] Move forward and backward; maybe easier than arrow keys, depending on
+    keyboard layout
+  - [X] Move to end of line, beginning
+  - [X] Logical Control: word at a time, sentence at a time
+  - [X] This is why keychords are useful -- keyboard "space" is too small
+  - [X] What do we mean by a sentence: 
 
-* More on commands
- - [ ] Control-Meta keypress
- - [ ] Prefix commands
- - [ ] Extended command sets
+** Commands [11/11] 
+  - [X] Everything is a command
+  - [X] Single characters are "self-inserting"
+  - [X] Key Chords do more complex things
+  - [X] Menu's also run commands
+  - [X] Menu's and keyboard are linked
+  - [X] Help->Describe->Keyboard or Mouse Operation, 
+    Remove Other Windows
+  - [X] Now do Remove Other Windows
+  - [X] Now do C-h k, C-x 1, to get to the same help, followed by C-x 1 to
+    remove
+  - [X] In the menu, C-x 1 is listed. In the help 
+       "It is bound to C-x 1, <menu-bar> <file> <one-window>"
+  - [X] TODO: The menu bar description doesn't tell you how to use it!
+  - [X] Some commands are bound to many places! C-h k C-h k which describes itself.
 
-* Modal Editing
- 
- - Emacs comes with many different modes
- - Each changes the ways, including the keys massively
- - Hopefully this is most intuitive.
- - Help screen, for example, space and backspace move up and down.
+** Undo [4/4]
+  - [X] Undo works as expected
+  - [X] C-/, or C-_
+  - [X] Takes a numeric argument
+  - [X] Can also use C-x u
 
-* ELPA Packages
-
- - We can extend Emacs with packages
- - There are many of these in Emacs
- - M-x list-packages
- - To complete, we will install, tutorial extra
-
+** Cut, Paste, Yank and Kill [9/9]
+  - [X] Cut and Paste is very useful
+  - [X] Emacs uses something slightly different: essentially, when ever you
+    remove a significant amount of text at once, it's a cut.
+  - [X] Simplest form of deletion (backspace) *is* a delete
+  - [X] Most others are *kill* -- actually save the text also
+  - [X] How to kill
+  - [X] Select and kill with mouse
+  - [X] How to yank, and yank cycle
+  - [X] No special mechanism is required for cutting.
+  - [X] But, what about Ctrl-X, C and V? And isn't Ctrl-W a PITA, as it shuts
+    windows in general? Cua-mode. See this later.
 
 
- 
+** Files [/]
+  - [ ] But what about files?
+  - [ ] How to open a file, how to save a file
+  - [ ] TODO: "Visit New File" needs to be called "Open New File"
+    
+** Buffer
+  - [ ] Can think of buffers like tabs (without tabs)
+  - [ ] You can have many buffers
+  - [ ] How do you select them, if you can't see them
+  - [ ] List Buffers
+  - [ ] Emacs never edits files, but buffers
+  - [ ] You can discard (kill) a buffer with no affect on the file
+  - [ ] You can have a buffer with no file (help)
+
+
+** Windows 
+  - [ ] Earlier we saw windows...
+  - [ ] Emacs can have several windows.
+  - [ ] Windows are not frames
+  - [ ] We have seen how to get out of this
+  - [ ] Now, let's try some use
+  - [ ] Drag the mode-line to resize vertically
+  - [ ] Can also split vertically, and drag the divider
+  - [ ] "Selected window" works by clicking; cursor
+  and altered mode-line tells you which is selected
+  - [ ] C-x o also changes window
+  - [ ] Unlike OS "windowing systems", you can move without changing
+    
+** More on commands
+  - [ ] Control-Meta keypress
+  - [ ] Prefix commands
+  - [ ] Extended command sets
+
+** Modal Editing
+  
+  - Emacs comes with many different modes
+  - Each changes the ways, including the keys massively
+  - Hopefully this is most intuitive.
+  - Help screen, for example, space and backspace move up and down.
+
+** ELPA Packages
+
+  - We can extend Emacs with packages
+  - There are many of these in Emacs
+  - M-x list-packages
+  - To complete, we will install, tutorial extra
 
 
 
+  
+
+
+
+
+
+* Software
+
+** Org-mode vs Text mode
+
+Quite like the idea of displaying this to the users in org-mode. It's cuter,
+coloured and has some folding functionality, as well as hyperlinks. It changes
+a lot of defaults though, so some keypresses might be wrong. Also, it shows
+things like /italic/ which is not ideal.
+
+Text mode is simple and straight-forward but dull
+
+** Pimping Org-mode
+
+Org-mode already has an image mode (org-startup-with-inline-images), so we can
+put images straight in. A full previous mode with additional syntax
+highlighting to hide some of the hieroglyphics would be nice.
+
+Also, "show-me" clickability for menu items, keybindings and commands.
 
