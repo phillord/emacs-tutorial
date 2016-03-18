@@ -411,6 +411,54 @@ a lot of things which really only make sense when calling them
 interactively, like setting the mark.  This is exactly the case with
 =end-of-buffer=.
 
+* Exploring Elisp
+Let us stop for a minute and think about possible enhancements to the
+above command.  The first thing is that it is not an especially good
+idea to hardcode the year.  It would be much better to put the current
+year in.  This is not very difficult.  First, we would like to know
+which function returns the current date.  (I could just tell you that
+now, but I'd like to teach you how to find out these things for
+yourself!)  One way to learn about such function could be to read the
+Emacs Lisp Reference, but there is a faster one.  Let's try to come up
+with some string which could be part of that name: =M-x apropos RET
+today RET=.  No luck – this doesn’t return any hits in stock Emacs.
+(Incidentally, it /does/ find a few things in /my/ Emacs, but none of
+those helps a lot.)  Now it’s time to get a bit creative.  What words
+could describe the today’s date?  Here are two more candidates I can
+think of: “date” and “current”.  =M-x apropos RET date RET= yields way
+too many results (almost 70 on fresh Emacs, and more than 500 in my
+normal Emacs session!).  Let’s filter all things like “update” out:
+=M-x apropos RET \bdate\b RET= – much better, only about a dozen on
+a fresh Emacs.  Unfortunately, none of those seem to do what we need.
+Let’s try =M-x apropos RET current RET= (here we don’t need =\b=,
+since there are not many words with the string “current” as
+a subword).  This time we have to look through several dozen
+candidates, but our effort is rewarded by the =current-time=
+function.
+
+The docstring says that it returns the Unix time in a rather weird
+format.  We would like to be able to find out what the current /year/
+is.  How do we know how to do that?  Let’s open the Emacs Lisp
+Reference (=C-h i d m Elisp RET=), press =i= (for “index”) and type
+=current-time=.  And here is a useful trick: you can now press =u=
+(“up”) for a broader view (i.e., the parent section of the section
+you’re in).  This quickly leads to the “Time Conversion” section,
+where the first function is =decode-time= – and that’s exactly what we
+needed!  (It turns out, by the way, that we don’t even need the
+=current-time= function after all, since the first argument to
+=decode-time= is optional, and defaults to “now”.)  Try now to
+evaluate this:
+#+BEGIN_SRC elisp
+  (decode-time)
+#+END_SRC
+As you can see, we get a list whose sixth element is the current year
+number.  Extracting it is now trivial:
+#+BEGIN_SRC elisp
+  (nth 5 (decode-time))
+#+END_SRC
+(The numeral =5= is here because =nth= returns, well, the nth element
+of the list given, but it starts counting from zero.)
+
 * Variables and assignment
 
 * Conditionals
