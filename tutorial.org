@@ -507,8 +507,8 @@ editor, the most common use for Emacs is to open, change and save files.
 First, we should recap the difference between a /file/ and a /buffer/.
 Everything that you see on screen is a buffer. Buffers are often /associated/
 with a file: that is, they show the contents of a file, and will save changes
-to that file. But many buffers are not and, instead, contain other
-information.
+to that file. But many buffers are not, and contain other
+information instead.
 
 Opening a file in Emacs is straight-forward. In the menu system use:
 
