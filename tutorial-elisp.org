@@ -459,6 +459,40 @@ number.  Extracting it is now trivial:
 (The numeral =5= is here because =nth= returns, well, the nth element
 of the list given, but it starts counting from zero.)
 
+* Formatting strings
+This is not the end of the story, though.  We can now get the year /as
+a number/.  However, the =insert= function expects /strings/.  (This
+is not really true – it can accept a number, but the result may be
+surprising.  Try evaluating =(insert 65)= and see what happens.)  How
+do we insert a number?  There are functions for converting a number to
+its string representation in Elisp, but there is a better way: the
+=format= function.  (It is similar to C’s =printf=-like functions.)
+It accepts a string and then some optional arguments; those arguments
+will be put into the string in place of special markers, beginning
+with the =%= sign.  For instance, =%d= converts an integer to its
+string representation, =%f= does the same with a floating point
+number, =%s= is a jack of all trades (it accepts nearly anything, but
+the representation may not always be what you want),  and =%%= is
+a literal percent sign.  So, let’s try evaluating this:
+#+BEGIN_SRC elisp
+  (format "Current year is %d." (nth 5 (decode-time)))
+#+END_SRC
+Bingo!
+
+Now before you go further, don’t peek ahead and try to find yourself
+a function which will ask the operating system for the full name of
+the user, and try to construct a =format= call to generate a copyright
+note, using both the current year and the user’s name.
+
+And here is my solution:
+#+BEGIN_SRC elisp
+  (defun insert-copyright-note ()
+    "Insert a copyright note at the end of the buffer."
+    (interactive)
+    (end-of-buffer)
+    (insert (format "(c) %d %s" (nth 5 (decode-time)) (user-full-name)))
+#+END_SRC
+
 * Variables and assignment
 
 * Conditionals
