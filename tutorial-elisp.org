@@ -328,7 +328,6 @@ We will do all these in subsequent sections.
 
 * Looping
 
-* Side effects
 
 * Variables and assignment
 
