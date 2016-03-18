@@ -244,7 +244,11 @@ If you actually did evaluate the above expressions, you may have
 noticed something strange.  The result of the second expression was
 not, as you may have expected, the /empty list/ =()=, but the word
 =nil=.  Don't worry: it is exactly the same thing.  Whenever you are
-allowed to write =()=, you can also write =nil=, and vice versa.
+allowed to write =()=, you can also write =nil=, and vice versa.  In
+general, Elisp's =nil= is analogous to mathematics' empty set, or
+shrugging in real life.  This is what a function returns when it has
+nothing to say, for instance. (It also has other meanings, which we
+will learn in a few minutes.)
 
 You may ask, why would you want to write =(list 1 2 3)= when writing
 ='(1 2 3)= is shorter?  The short answer is: it is rarely the case
