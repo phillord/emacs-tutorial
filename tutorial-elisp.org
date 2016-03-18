@@ -267,7 +267,20 @@ destructive function on the variable containing that list, never,
 /ever/ use the quote notation in your program.  You do not know it
 yet, but I just saved you a /lot/ of headaches.   You are welcome.
 
-* Conditionals
+* Side effects
+In theory, the main result of evaluating the expression is its value.
+In practice, we want our program do more things than just compute
+something.  For instance, it is natural that an Emacs Lisp program
+/modifies/ some buffer.
+
+In computer science, we call any effects of evaluating an expression
+/other/ than returning its value /side effects/.  This does not mean
+that they are less important.  On the contrary, it is not unusual for
+a Lisp expression to be evaluated only for the sake of its side
+effects, and in such cases we often disregard its returned value.
+Some functions even always return =nil=, because the /only/ reason for
+their existence is side effects.
+
 
 * Looping
 
@@ -276,6 +289,7 @@ yet, but I just saved you a /lot/ of headaches.   You are welcome.
 * Variables and assignment
 
 * Functions
+* Conditionals
 
 * Commands
 
