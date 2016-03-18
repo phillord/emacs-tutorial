@@ -325,16 +325,70 @@ system for the username to insert.
 
 We will do all these in subsequent sections.
 
+* Functions
+The first problem with our "program" is that it is not really
+a /program/ -- it is just a pair of expressions, and we have to type
+(or yank) them manually in the right order to achieve the desired
+effect.  What we need is a way to /group/ them in a way that it will
+be the machine's responsibility to evaluate them one after another.
 
-* Looping
+Like in most common langauges, the means to this end in Elisp is by
+using /functions/.  Function is exactly what we need: a group of
+related expressions.  What is more important is what a function can
+/do/ for us: a function may be /called/, which means that Emacs will
+evaluate all the expressions constituting it in order they appear in
+the function's definition.
+
+Let us look at an example.  Here is our program, wrapped up in
+a function:
+
+#+BEGIN_SRC elisp
+  (defun insert-copyright-note ()
+    "Insert a copyright note at the end of the buffer."
+    (end-of-buffer)
+    (insert "(c) 2016 Marcin Borkowski"))
+#+END_SRC
+The value returned by the =(defun ...)= expression is irrelevant; this
+expression is called for its side effect, which is to create
+a function and associate a /name/ with it.
+
+Let us look at this expression closer.  The first element of the list,
+the symbol =defun=, signals to Elisp that we want to /de/fine
+a /fun/ction.  The second element is the name we want our function to
+have.  The third is an empty list, and we will talk about it later.
+The fourth is the /docstring/, which will be shown by Emacs
+self-documenting commands.  The rest are the expressions which make up
+our function.
+
+In order for our function to be defined, we have to evaluate this
+expression.  We could do it by putting the point right after the last
+closing parentesis and pressing =C-x C-e=, but there is a better way:
+we can place the point /anywhere within the =defun= expression/ and
+press =C-M-x= (=eval-defun=).  (This last binding works only in Emacs
+Lisp major mode.)
+
+By the way, it is worth noting that quite a lot of Emacs functions and
+commands are defined in this (or similar) way.  At the time I'm
+writing this, 1176 functions in my Emacs are defined internally in
+C (the language the "core" of Emacs is written in), and the rest of
+them is defined in Lisp via =defun= and similar facilities.  It
+doesn't seem a big deal until we realize that /our function is treated
+by Emacs as a first-class citizen; in fact, it potentially has access
+to the same data and functions most of Emacs itself has/!  In other
+word, what we have just written is not a /plugin/, which depends on
+the author of the editor giving us access to /some/ possibilities of
+the editor; it is now /part of Emacs/, just like, say, =find-file= or
+=save-buffer= etc.
+
+Only that it's not written well (yet).
 
 
 * Variables and assignment
 
-* Functions
 * Conditionals
 
 * Commands
+* Looping
 
 * Introduction to debugging
 
