@@ -281,6 +281,50 @@ effects, and in such cases we often disregard its returned value.
 Some functions even always return =nil=, because the /only/ reason for
 their existence is side effects.
 
+* Example: Adding some text at the end of the buffer
+We studied quite a lot of theory, so let us now see an example.
+Assume that we want to write a program which inserts some text at the
+end of the buffer -- like =(c) 2016 <your name here>=.  This is
+something we might imagine writing manually, and we might want to
+write a program to make this faster, less boring and less
+error-prone.
+
+For simple Elisp programs doing manipulations on the buffer, it is
+often the case that we can "mimic" the (manual) editing operations
+leading to the desired result.  (In fact, Emacs has a special facility
+precisely for "recording" some user actions, like keypresses -- the
+so-called /keyboard macros/.  Elisp programs are much more powerful,
+however.)  In this case, what we /could/ do is: press =M->=
+(=end-of-buffer=), and then /type/ the text.
+
+Our program could consist of two expressions:
+#+BEGIN_SRC elisp
+  (end-of-buffer)
+  (insert "(c) 2016 Marcin Borkowski")
+#+END_SRC
+In the first expression you instantly recognize the name of Emacs
+command called to get to the end of buffer.  The second one is roughly
+the counterpart of typing the contents of the string.  (In fact,
+=insert= is /always/ used for this side effect of its.  I can tell
+that for sure, because it /always/ returns =nil=!)
+
+You may try now to press =M-:= and enter the first expression, then
+=M-:= again and enter the second.  It works, but is not very
+convenient.
+
+What are the problems with our approach?  First of all, we would
+prefer to be able to evaluate our expressions /at once/ (i.e., in
+quick succession, without having to manually enter one after the
+other).  Then, we would probably prefer to write a /command/, so that
+instead of typing something to the =M-:= prompt, we could say =M-x
+insert-copyright-note=, or even bind it to some convenient key, like
+=C-c c=.  The next thing could be ensuring that the copyright notice
+starts on its own line.  Finally, instead of hard-coding the year and
+the user's name, we might want to use the current year and ask the
+system for the username to insert.
+
+We will do all these in subsequent sections.
+
 
 * Looping
 
