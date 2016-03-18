@@ -382,12 +382,39 @@ the editor; it is now /part of Emacs/, just like, say, =find-file= or
 
 Only that it's not written well (yet).
 
+* Commands
+You may now try pressing =M-: (insert-copyright-note)=.  It works, but
+still is far from perfect.  First of all, we want to make it
+a command, so that we could call it with =M-x=.  This part is easy.
+To mark a function for interactive use (i.e., to make it a command),
+all we need to do is to put a special expression =(interactive)= right
+after the docstring.  This expression does not /do/ anything (and when
+/executing/ function, i.e., evaluating the expressions the function is
+composed of, it returns =nil=), but it signals Emacs that this
+function is a command and can be called with =M-x= or bound to a key.
+
+Try it now: while =M-x insert-copyright-note= does /not/ work, after
+evaluating this:
+#+BEGIN_SRC elisp
+  (defun insert-copyright-note ()
+    "Insert a copyright note at the end of the buffer."
+    (interactive)
+    (end-of-buffer)
+    (insert "(c) 2016 Marcin Borkowski"))
+#+END_SRC
+it suddenly does.
+
+It is worth noting here that while many Emacs /commands/ are actually
+/functions/, and hence they may be called in Lisp programs (like we
+did), it does not mean they /should/.  For instance, many commands do
+a lot of things which really only make sense when calling them
+interactively, like setting the mark.  This is exactly the case with
+=end-of-buffer=.
 
 * Variables and assignment
 
 * Conditionals
 
-* Commands
 * Looping
 
 * Introduction to debugging
