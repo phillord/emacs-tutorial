@@ -111,8 +111,9 @@ New Window Below
 #+end_menu
 
 You should now see this tutorial twice in two windows; although it appears
-twice, there is only one copy. Changing one view will change the other. Now we
-can change the buffer being displayed in one window.
+twice, there is only one copy. This makes it possible to edit two parts of a
+file at the same time. Now we can change the buffer being displayed in one
+window.
 
 #+begin_menu
 Buffers
@@ -204,6 +205,7 @@ for some punctuation --- to type the double quote, you press "shift" and "2"
 or "'" depending on your keyboard layout. What may surprise you is the extent
 to which Emacs expands on this idea of multiple keypresses, and it is this
 that we will consider in the next section.
+
 
 * Keyboard Control
 
@@ -499,6 +501,7 @@ Save Options
 
 Later on, we will discuss /modes/ in more detail.
 
+
 * Files and Directories
 
 So far, we have looked at how to control Emacs. Of course, being a text
@@ -507,8 +510,7 @@ editor, the most common use for Emacs is to open, change and save files.
 First, we should recap the difference between a /file/ and a /buffer/.
 Everything that you see on screen is a buffer. Buffers are often /associated/
 with a file: that is, they show the contents of a file, and will save changes
-to that file. But many buffers are not and, instead, contain other
-information.
+to that file.
 
 Opening a file in Emacs is straight-forward. In the menu system use:
 
@@ -544,5 +546,101 @@ Emacs was originally intended for programmers, who tend to open a lot of
 files, often spread widely around the file system. Although, we will not look
 at them in further detail, Emacs has been extended in a number of ways to make
 file navigation very quick, including, for example ~ido-mode~.
+
+* Working With Buffers
+
+We described buffers earlier when looking at windows. Nearly everything that
+you interact with in Emacs happens in a buffer. The can contain simple text,
+they can be associated with files, they can be connected to processes, or to
+network sockets. A single Emacs can have any number of tabs open at once. Any
+buffer can be displayed in no, one or many frames, and likewise, no, one or
+many windows.
+
+In many ways, Emacs buffers operate like "tabbed windows" in other systems,
+although, unlike tabs, they are not have a visible tab on screen the whole
+time. Which raises the obvious question, how do we select a buffer which is
+not visible? Emacs provides two main mechanisms for achieving this. First the
+menu called, logically enough, "Buffers". This menu also provides access to
+the second mechanism -- try:
+
+#+begin_menu
+Buffers
+List All Buffers
+#+end_menu
+
+This displays a buffer which contains a list of all the other buffers. From
+here it is possible to select, save or kill any buffers. The "Buffer-Menu"
+enables this and, of course, there are keychord shortcuts available.
+
+As with directories, "List All Buffers" works by creating and then displaying
+its own buffer.  When you have finished try C-x 1 to remove the window showing
+this buffer, or C-x C-b to kill the buffer.
+
+
+* Modal Editing or Why the Menu Bar Keeps changing
+
+You may have noticed while listing directories or buffers that the menu bar
+changes frequently. In fact, this is a symptom of a larger feature of Emacs --
+modal editing.
+
+Most operating systems have a form of modal editing. Different kinds of files
+open in different applications, each of which behave in a different way.
+Emacs allows editing of many different files but supports the same idea; it
+provides a different set of editing commands for different file types or, more
+accurately, different types of buffer.  Every buffer has a /major-mode/ and it
+this mode that determines the editing commands -- including the menu bar --
+available.  So, the ability to mark a buffer, then delete it is available when
+listing buffers, the ability to mark and delete a file when viewing
+directories, and the ability to fill a paragraph in text. Most modes support
+the same cursor movement commands: C-e to move to the end of the line, for
+instance, although even here there are special cases.
+
+Emacs has many, many different major-modes -- at a rough count, there are over
+300 in the standard Emacs. Of course, Emacs is extensible: it is possible to
+add write new major-modes or use other peoples.
+
+Modes help the process of editing enormously, but can some times be a source
+of confusion. If this are not behaving as you expect, mostly likely you are in
+a specialised mode.
+
+* Help!
+
+In the last section, we mentioned that some modes change even cursor
+movement. An example of this is Emacs' help system, called /info/. Emacs has
+an extensive manual describing every aspect of its functionality; actually, it
+has two manuals as it also has one describing its implementation language.
+
+The Info manual can be reached through:
+
+#+begin_menu
+Help
+Read the Emacs Manual
+#+end_menu
+
+or C-h r. Once you are reading the manual you can use the space bar to read
+through the manual from start to finish should you wish to!
+
+* Packages
+
+Through out the tutorial, we have said that Emacs is completely
+extensibile. Of course, extensions like Free Software in general is meant to
+be shared; Emacs also contains a package system which allows adding this new
+functionality. As always, Emacs provides a buffer and major mode for
+interacting and managing packages which can be accessed via:
+
+#+begin_menu
+Options
+Manage Emacs Packages
+#+end_menu
+
+Or M-x list-packages. Try this now, and scroll to (or search for)
+"tutorial-complete". Once there, type "i" (for install), then "x" (for
+execute). Finally, run M-x tutorial-next to run your newly installed
+tutorial functionality.
+
+
+
+
+
 
 
